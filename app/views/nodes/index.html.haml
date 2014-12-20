@@ -1,0 +1,16 @@
+%h1 Nodes
+= link_to "Add a Node", new_node_path
+
+- if @nodes.exists?
+  %table
+    %tr
+      %th Name
+      %th Role
+      %th Description
+      %th Actions
+    - @nodes.each do |node|
+      %tr
+        %td= node.first_name + " " + node.last_name
+        %td= node.role
+        %td= node.description
+        %td= link_to "Edit", edit_node_path(node)

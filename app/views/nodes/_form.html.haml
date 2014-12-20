@@ -1,0 +1,29 @@
+%h1= node.new_record? ? "Create a new Node" : "Edit Node"
+
+- form_options = {url: node.new_record? ? nodes_path : node_path(node),
+  html: {method: node.new_record? ? "POST" : "PUT",
+  multipart: true, class: 'n-form'}}
+
+=form_for :node, form_options do |f|
+  .f-row
+    = f.label :first_name
+    = f.text_field :first_name
+    - if !node.errors[:first_name].empty?
+      .error=node.errors[:first_name].join(", ")
+  .f-row
+    = f.label :last_name
+    = f.text_field :last_name
+    - if !node.errors[:last_name].empty?
+      .error=node.errors[:last_name].join(", ")
+  .f-row
+    = f.label :role
+    = f.text_field :role
+    - if !node.errors[:role].empty?
+      .error=node.errors[:role].join(", ")
+  .f-row
+    = f.label :description
+    = f.text_field :description
+    - if !node.errors[:description].empty?
+      .error=node.errors[:description].join(", ")
+  .f-row
+    = f.submit

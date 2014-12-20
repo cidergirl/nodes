@@ -1,0 +1,27 @@
+.n-form {
+  width: 320px;
+
+  .f-row {
+    height: 40px;
+    clear: both;
+    margin-bottom: 10px;
+
+    label {
+      float: left;
+    }
+
+    input[type=text] {
+      float: right;
+    }
+
+    .error {
+      clear: both;
+      color: red;
+      float: right;
+      font-size: 11px;
+    }
+
+  }
+
+
+}
